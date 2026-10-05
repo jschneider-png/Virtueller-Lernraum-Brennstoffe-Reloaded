@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Virtueller Lernraum zur Lernkontrolle: Brennstoffe, Verbrennung, Heizöl, Erdgas, Schwefel, Heizwert und Brennwert." />
+  <title>Virtueller Lernraum – Brennstoffe</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar no-print">
+    <div class="wrap topbar-inner">
+      <div>
+        <p class="eyebrow">LF 9 · Heizungstechnik</p>
+        <h1>Virtueller Lernraum – Brennstoffe</h1>
+      </div>
+      <div class="status" aria-live="polite">
+        <span id="timer">40:00</span>
+        <span id="progressLabel">0 %</span>
+      </div>
+    </div>
+    <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+  </header>
+
+  <main class="wrap">
+    <section id="startScreen" class="start-screen">
+      <div class="start-image-wrap" style="grid-column: 1 / -1; margin-bottom: 1.5rem; text-align: center;">
+        <img
+          src="images/startbild-lernraum.png"
+          alt="Startbild des virtuellen Lernraums zu Brennstoffen, Verbrennung, Heizöl, Erdgas und Schwefel"
+          style="display:block; width:100%; max-width:1055px; height:auto; margin:0 auto; border:1px solid #d7dee7; border-radius:12px; box-shadow:0 8px 24px rgba(15, 39, 64, 0.08);"
+        />
+      </div>
+      <div class="start-copy">
+        <p class="eyebrow">Lernkontrolle · 30–40 Minuten</p>
+        <h2>Selbstständig prüfen. Rechenwege zeigen. Fachbegriffe sicher anwenden.</h2>
+        <p>Diese Übungsseite enthält ausschließlich Aufgaben. Die Anforderungen steigen von Basiswissen über Anwendung bis Transfer.</p>
+        <div class="start-meta">
+          <div><strong>7</strong><span>Stationen</span></div>
+          <div><strong>30–40</strong><span>Minuten</span></div>
+          <div><strong>4</strong><span>Niveaustufen</span></div>
+        </div>
+        <div class="notice">
+          <strong>Arbeitsweise:</strong> Bei Aufgaben mit Tabellenbuch-Hinweis Werte aus Fach-/Tabellenbuch entnehmen und mit Einheit notieren. Bei jeder Rechnung: Formel → Einsetzen → Rechenweg → Ergebnis mit Einheit.
+        </div>
+        <button id="startBtn" class="primary">Lernkontrolle starten</button>
+      </div>
+      <div class="start-board" aria-label="Stationsübersicht">
+        <ol>
+          <li><span>01</span>Brennstoff-Check</li>
+          <li><span>02</span>Verbrennung & Feuerdreieck</li>
+          <li><span>03</span>Heizöl & Erdgas</li>
+          <li><span>04</span>Schwefelpfad</li>
+          <li><span>05</span>Heizwert & Brennwert</li>
+          <li><span>06</span>Rechenlabor</li>
+          <li><span>07</span>Transfer & Fachdialog</li>
+        </ol>
+      </div>
+    </section>
+
+    <form id="quiz" class="hidden" autocomplete="off">
+      <div class="toolbar no-print">
+        <button type="button" id="overviewBtn" class="secondary">Stationsübersicht</button>
+        <button type="button" id="printBtn" class="secondary">Druckansicht</button>
+        <button type="button" id="saveBtn" class="secondary">Zwischenstand speichern</button>
+      </div>
+
+      <section class="station" id="station1" data-station="1">
+        <div class="station-head">
+          <div><span class="station-no">01</span><div><p class="eyebrow">Basis → Standard · ca. 5 Min.</p><h2>Brennstoff-Check</h2></div></div>
+          <span class="level level-basis">Basis</span>
+        </div>
+
+        <div class="task-card" data-points="4">
+          <h3>1.1 Multiple Choice <span class="points">4 P</span></h3>
+          <p>Wähle <strong>alle</strong> richtigen Aussagen aus.</p>
+          <label><input type="checkbox" name="mc1" value="c"> Kohlenstoff ist ein wichtiger brennbarer Hauptbestandteil vieler Brennstoffe.</label>
+          <label><input type="checkbox" name="mc1" value="h"> Wasserstoff ist ein wichtiger brennbarer Hauptbestandteil vieler Brennstoffe.</label>
+          <label><input type="checkbox" name="mc1" value="s"> Schwefel ist grundsätzlich ein erwünschter Hauptbestandteil.</label>
+          <label><input type="checkbox" name="mc1" value="o"> Sauerstoff muss als Brennstoffbestandteil vorhanden sein.</label>
+          <button type="button" class="check-btn" data-check="mc1">Prüfen</button>
+          <p class="feedback" id="fb-mc1"></p>
+        </div>
+
+        <div class="task-card" data-points="6">
+          <h3>1.2 Zuordnen <span class="points">6 P</span></h3>
+          <p>Ordne jeden Brennstoff dem Aggregatzustand zu.</p>
+          <div class="match-grid">
+            <label>Holz<select data-answer="fest"><option value="">– wählen –</option><option>fest</option><option>flüssig</option><option>gasförmig</option></select></label>
+            <label>Heizöl<select data-answer="flüssig"><option value="">– wählen –</option><option>fest</option><option>flüssig</option><option>gasförmig</option></select></label>
+            <label>Erdgas<select data-answer="gasförmig"><option value="">– wählen –</option><option>fest</option><option>flüssig</option><option>gasförmig</option></select></label>
+            <label>Pellets<select data-answer="fest"><option value="">– wählen –</option><option>fest</option><option>flüssig</option><option>gasförmig</option></select></label>
+            <label>Diesel<select data-answer="flüssig"><option value="">– wählen –</option><option>fest</option><option>flüssig</option><option>gasförmig</option></select></label>
+            <label>Propan<select data-answer="gasförmig"><option value="">– wählen –</option><option>fest</option><option>flüssig</option><option>gasförmig</option></select></label>
+          </div>
+          <button type="button" class="check-btn" data-check="matching">Prüfen</button>
+          <p class="feedback" id="fb-matching"></p>
+        </div>
+      </section>
+
+      <section class="station" id="station2" data-station="2">
+        <div class="station-head">
+          <div><span class="station-no">02</span><div><p class="eyebrow">Basis → Transfer · ca. 4 Min.</p><h2>Verbrennung & Feuerdreieck</h2></div></div>
+          <span class="level level-standard">Standard</span>
+        </div>
+        <div class="task-card" data-points="3">
+          <h3>2.1 Feuerdreieck <span class="points">3 P</span></h3>
+          <p>Ergänze die drei Voraussetzungen einer Verbrennung.</p>
+          <div class="three-cols">
+            <input id="fire1" placeholder="1. Voraussetzung" />
+            <input id="fire2" placeholder="2. Voraussetzung" />
+            <input id="fire3" placeholder="3. Voraussetzung" />
+          </div>
+          <button type="button" class="check-btn" data-check="fire">Prüfen</button><p class="feedback" id="fb-fire"></p>
+        </div>
+        <div class="task-card" data-points="4">
+          <h3>2.2 Denkaufgabe <span class="points">4 P</span></h3>
+          <p>Ein brennendes Holzstück wird vollständig mit einem nicht brennbaren Deckel abgedeckt. Erkläre fachlich, warum die Flamme nach kurzer Zeit erlischt. Beziehe dich ausdrücklich auf das Feuerdreieck.</p>
+          <textarea data-required="true" data-minwords="22" placeholder="Deine Erklärung …"></textarea>
+          <details><summary>Selbstcheck-Kriterien</summary><p>Deine Antwort sollte Ursache, fehlende Voraussetzung und Folge nennen.</p></details>
+        </div>
+      </section>
+
+      <section class="station" id="station3" data-station="3">
+        <div class="station-head">
+          <div><span class="station-no">03</span><div><p class="eyebrow">Standard → Profi · ca. 6 Min.</p><h2>Heizöl & Erdgas</h2></div></div>
+          <span class="level level-profi">Profi</span>
+        </div>
+        <div class="task-card" data-points="6">
+          <h3>3.1 Fachbegriffe sicher verwenden <span class="points">6 P</span></h3>
+          <div class="short-grid">
+            <label>Aus welchem Rohstoff wird Heizöl gewonnen?<input data-exact="rohöl" /></label>
+            <label>Wie heißt die Anlage zur Trennung/Weiterverarbeitung?<input data-contains="raffinerie" /></label>
+            <label>Wie heißt die Sicherheitsmaßnahme, durch die Erdgas riechbar gemacht wird?<input data-contains="odor" /></label>
+          </div>
+          <p>Beschreibe die fraktionierte Destillation in 2–3 Sätzen. Verwende die Begriffe <strong>Verdampfen, Kondensieren, Fraktionen</strong>.</p>
+          <textarea data-required="true" data-keywords="verdampf,kondens,fraktion" data-minwords="25"></textarea>
+          <button type="button" class="check-btn" data-check="textfields">Teilaufgabe prüfen</button><p class="feedback" id="fb-textfields"></p>
+        </div>
+        <div class="task-card" data-points="5">
+          <h3>3.2 Praxiswissen <span class="points">5 P</span></h3>
+          <p>Beantworte knapp, aber fachlich vollständig.</p>
+          <label>Was beschreibt der Flammpunkt von Heizöl EL?<textarea data-required="true" data-minwords="12"></textarea></label>
+          <label>Was beschreibt der Cloud Point (CP) und warum ist er für Lagerung/Förderung wichtig?<textarea data-required="true" data-minwords="18"></textarea></label>
+        </div>
+        <div class="task-card" data-points="4">
+          <h3>3.3 Gasgeruch – Handeln statt diskutieren <span class="points">4 P</span></h3>
+          <p>Nenne drei sinnvolle Verhaltensregeln bei Gasgeruch.</p>
+          <input data-required="true" placeholder="1." /><input data-required="true" placeholder="2." /><input data-required="true" placeholder="3." />
+        </div>
+      </section>
+
+      <section class="station" id="station4" data-station="4">
+        <div class="station-head">
+          <div><span class="station-no">04</span><div><p class="eyebrow">Standard · ca. 4 Min.</p><h2>Schwefelpfad</h2></div></div>
+          <span class="level level-standard">Standard</span>
+        </div>
+        <div class="task-card" data-points="5">
+          <h3>4.1 Prozesskette ordnen <span class="points">5 P</span></h3>
+          <p>Bringe die Schritte vom Rohöl bis zum elementaren Schwefel in die richtige Reihenfolge.</p>
+          <div class="order-list" id="sulfurOrder">
+            <select data-answer="Rohöl"><option value="">1 – wählen –</option><option>Rohöl</option><option>Entschwefelung in der Raffinerie</option><option>Schwefelwasserstoff (H₂S)</option><option>Claus-Anlage</option><option>elementarer Schwefel</option></select>
+            <select data-answer="Entschwefelung in der Raffinerie"><option value="">2 – wählen –</option><option>Rohöl</option><option>Entschwefelung in der Raffinerie</option><option>Schwefelwasserstoff (H₂S)</option><option>Claus-Anlage</option><option>elementarer Schwefel</option></select>
+            <select data-answer="Schwefelwasserstoff (H₂S)"><option value="">3 – wählen –</option><option>Rohöl</option><option>Entschwefelung in der Raffinerie</option><option>Schwefelwasserstoff (H₂S)</option><option>Claus-Anlage</option><option>elementarer Schwefel</option></select>
+            <select data-answer="Claus-Anlage"><option value="">4 – wählen –</option><option>Rohöl</option><option>Entschwefelung in der Raffinerie</option><option>Schwefelwasserstoff (H₂S)</option><option>Claus-Anlage</option><option>elementarer Schwefel</option></select>
+            <select data-answer="elementarer Schwefel"><option value="">5 – wählen –</option><option>Rohöl</option><option>Entschwefelung in der Raffinerie</option><option>Schwefelwasserstoff (H₂S)</option><option>Claus-Anlage</option><option>elementarer Schwefel</option></select>
+          </div>
+          <button type="button" class="check-btn" data-check="sulfur">Prüfen</button><p class="feedback" id="fb-sulfur"></p>
+        </div>
+        <div class="task-card" data-points="5">
+          <h3>4.2 Nutzen & Umwelt <span class="points">5 P</span></h3>
+          <p>Nenne drei Anwendungen des gewonnenen Schwefels bzw. der daraus hergestellten Schwefelsäure und erläutere anschließend in einem Satz, warum Schwefel in Brennstoffen möglichst reduziert wird.</p>
+          <input data-required="true" placeholder="Anwendung 1" /><input data-required="true" placeholder="Anwendung 2" /><input data-required="true" placeholder="Anwendung 3" />
+          <textarea data-required="true" data-minwords="14" placeholder="Begründung zur Schwefelreduzierung …"></textarea>
+        </div>
+      </section>
+
+      <section class="station" id="station5" data-station="5">
+        <div class="station-head">
+          <div><span class="station-no">05</span><div><p class="eyebrow">Standard → Profi · ca. 5 Min.</p><h2>Heizwert & Brennwert</h2></div></div>
+          <span class="level level-profi">Profi</span>
+        </div>
+        <div class="task-card" data-points="6">
+          <h3>5.1 Begriffssicherheit <span class="points">6 P</span></h3>
+          <p>Erkläre den Unterschied zwischen Heizwert H<sub>i</sub> und Brennwert H<sub>s</sub> in 3–4 Sätzen. Die Begriffe <strong>Wasserdampf, Kondensation, zusätzliche Wärme</strong> müssen vorkommen.</p>
+          <textarea data-required="true" data-keywords="wasserdampf,kondens,zusätz" data-minwords="35"></textarea>
+          <label class="checkline"><input type="checkbox" data-required-check> Ich habe ausdrücklich erklärt, warum H<sub>s</sub> &gt; H<sub>i</sub> gilt.</label>
+        </div>
+        <div class="task-card" data-points="4">
+          <h3>5.2 Entscheiden mit Kriterien <span class="points">4 P</span></h3>
+          <p>Ein Brennstoff hat einen hohen Heizwert. Begründe, warum daraus allein noch nicht folgt, dass er besonders wenig Lagerraum benötigt.</p>
+          <textarea data-required="true" data-keywords="volumen,dichte" data-minwords="20" placeholder="Begründung …"></textarea>
+        </div>
+      </section>
+
+      <section class="station" id="station6" data-station="6">
+        <div class="station-head">
+          <div><span class="station-no">06</span><div><p class="eyebrow">Profi → Weltklasse · ca. 10–12 Min.</p><h2>Rechenlabor</h2></div></div>
+          <span class="level level-world">Weltklasse</span>
+        </div>
+        <div class="notice compact"><strong>Pflicht:</strong> Fach-/Tabellenbuch verwenden, wenn ein Stoffwert nicht vorgegeben ist. Stoffwert mit Einheit notieren. Rechenweg vollständig dokumentieren.</div>
+
+        <div class="task-card calc" data-points="6">
+          <h3>6.1 Koks – Heizwert <span class="points">6 P</span></h3>
+          <p>Berechne die Wärmemenge bei vollständiger Verbrennung von <strong>15 kg Koks</strong> ohne Berücksichtigung der Kondensationswärme.</p>
+          <div class="source-value"><label>Heizwert H<sub>i</sub> aus Tabellenbuch<input id="koksHi" inputmode="decimal" placeholder="Wert" /></label><label>Einheit<input id="koksUnit" placeholder="z. B. kWh/kg" /></label></div>
+          <label>Formel<input data-required="true" placeholder="Q = …" /></label>
+          <label>Rechenweg<textarea data-required="true" data-minwords="3" placeholder="Einsetzen und rechnen …"></textarea></label>
+          <label>Ergebnis mit Einheit<input data-required="true" placeholder="Q = …" /></label>
+          <details><summary>Hinweis</summary><p>Hier ist der Stoffwert absichtlich nicht vorgegeben. Er soll aus der im Unterricht verwendeten Fachquelle übernommen werden.</p></details>
+        </div>
+
+        <div class="task-card calc" data-points="6">
+          <h3>6.2 Heizöl EL – Brennwert <span class="points">6 P</span></h3>
+          <p>Welche Wärmemenge entsteht bei der Verbrennung von <strong>20 kg Heizöl EL</strong>, wenn die Kondensationswärme berücksichtigt wird? Verwende H<sub>s</sub> = <strong>12,60 kWh/kg</strong>.</p>
+          <label>Formel<input id="oilFormula" data-required="true" placeholder="Q = …" /></label>
+          <label>Ergebnis in kWh<input id="oilResult" inputmode="decimal" /></label>
+          <button type="button" class="check-btn" data-check="oilcalc">Ergebnis prüfen</button><p class="feedback" id="fb-oilcalc"></p>
+        </div>
+
+        <div class="task-card calc" data-points="6">
+          <h3>6.3 Erdgas E – Verbrauch <span class="points">6 P</span></h3>
+          <p>Eine Eigentumswohnung benötigt täglich <strong>135 kWh</strong>. Wie viele m³ Erdgas E werden bei H<sub>sB</sub> = <strong>10,8 kWh/m³</strong> benötigt?</p>
+          <label>Formel<input id="gasFormula" data-required="true" placeholder="V = …" /></label>
+          <label>Ergebnis in m³<input id="gasResult" inputmode="decimal" /></label>
+          <button type="button" class="check-btn" data-check="gascalc">Ergebnis prüfen</button><p class="feedback" id="fb-gascalc"></p>
+        </div>
+
+        <div class="task-card calc challenge" data-points="8">
+          <h3>6.4 Wahlaufgabe Weltklasse <span class="points">8 P</span></h3>
+          <p>In einem Niedrigtemperaturheizkessel werden monatlich <strong>250 Liter Heizöl EL</strong> verbrannt.</p>
+          <ol class="subtasks">
+            <li>Ermittle aus dem Tabellenbuch die nötigen Stoffwerte und berechne die erzeugte Wärmemenge in kWh.</li>
+            <li>Berechne, wie viele m³ Erdgas E mit H<sub>iB</sub> = 9,9 kWh/m³ für dieselbe Wärmemenge nötig wären.</li>
+            <li>Vergleiche die Brennstoffkosten bei 0,95 €/l Heizöl und 0,82 €/m³ Erdgas. Formuliere ein kurzes Urteil.</li>
+          </ol>
+          <textarea data-required="true" data-minwords="35" placeholder="Stoffwerte, Formeln, Rechenweg, Ergebnisse, Urteil …"></textarea>
+        </div>
+      </section>
+
+      <section class="station" id="station7" data-station="7">
+        <div class="station-head">
+          <div><span class="station-no">07</span><div><p class="eyebrow">Transfer · ca. 6 Min.</p><h2>Transfer & Fachdialog</h2></div></div>
+          <span class="level level-world">Transfer</span>
+        </div>
+        <div class="task-card" data-points="8">
+          <h3>7.1 Fach-Chat <span class="points">8 P</span></h3>
+          <p>Schreibe einen kurzen Fachdialog mit <strong>mindestens 8 Nachrichten</strong> zwischen Lea und Tom zum Thema: <em>Warum wird schwefelarmes Heizöl eingesetzt und welche Vorteile hat das für Umwelt und Anlage?</em></p>
+          <div id="chatRows" class="chat-rows"></div>
+          <button type="button" id="addChat" class="secondary">Nachricht ergänzen</button>
+          <p class="feedback" id="fb-chat"></p>
+        </div>
+        <div class="task-card" data-points="8">
+          <h3>7.2 Entscheidungssituationen <span class="points">8 P</span></h3>
+          <div class="scenario"><strong>Fall A:</strong> Wenig Lagerplatz, Gasanschluss vorhanden, geringer Bedienaufwand gewünscht.</div>
+          <label>Entscheidung<input data-required="true" /></label>
+          <label>Begründung mit mindestens 3 Kriterien<textarea data-required="true" data-minwords="28" placeholder="Lagerung · Transport · Emissionen · Verfügbarkeit · Kosten/Handhabung …"></textarea></label>
+          <div class="scenario"><strong>Fall B:</strong> Kein Gasanschluss, aber Öltank vorhanden.</div>
+          <label>Entscheidung<input data-required="true" /></label>
+          <label>Begründung mit mindestens 3 Kriterien<textarea data-required="true" data-minwords="28"></textarea></label>
+        </div>
+      </section>
+
+      <section class="finish-card no-print">
+        <h2>Abgabe & Selbstcheck</h2>
+        <p>Prüfe vor der Abgabe: Einheiten, Rechenwege, Fachbegriffe und vollständige Begründungen.</p>
+        <button type="button" id="finishBtn" class="primary">Auswertung anzeigen</button>
+        <div id="resultBox" class="result-box hidden" aria-live="polite"></div>
+      </section>
+    </form>
+  </main>
+
+  <dialog id="overviewDialog">
+    <div class="dialog-head"><h2>Stationsübersicht</h2><button id="closeOverview" aria-label="Schließen">×</button></div>
+    <div id="stationLinks" class="station-links"></div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
